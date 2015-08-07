@@ -22,17 +22,25 @@ function islandora_attach_datastream_command() {
     'islandora_attach_datastream_to_object' => array(
       'bootstrap' => DRUSH_BOOTSTRAP_MAX,
       'options' => array(
-        'target_pid' => array(
-          'value' => 'required',
-          'description' => dt('The PID of the target Fedora object.'),
-        ),
-        'datastream_label' => array(
-          'value' => 'required',
-          'description' => dt('The label (e.g. OBJ) for the datastream.'),
-        ),
         'source_filepath' => array(
           'value' => 'required',
-          'description' => dt('The file to attach.'),
+          'description' => dt('A local filepath corresponding to the file to attach as the datastream.'),
+        ),
+        'target_pid' => array(
+          'value' => 'required',
+          'description' => dt('The PID of the Fedora object to attach the datastream.'),
+        ),
+        'datastream_dsid' => array(
+          'value' => 'required',
+          'description' => dt('The DSID (e.g. \'OBJ\') to be applied to the datastream.'),
+        ),
+        'datastream_label' => array(
+          'value' => 'optional',
+          'description' => dt('The label (e.g. \'Web Surrogate JP2.\') to be applied to the datastream. If unset, NULL will be used.'),
+        ),
+        'datastream_mimetype' => array(
+          'value' => 'optional',
+          'description' => dt('The mimetype (e.g. \'image/jp2\') to be applied to the datastream. If not set, the value returned from file_get_mimetype() will be used.'),
         ),
       ),
       'drupal_dependencies' => array(

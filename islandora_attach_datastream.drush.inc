@@ -7,7 +7,7 @@
 /**
  * Implements hook_drush_help().
  */
-function registry_rebuild_drush_help($section) {
+function islandora_attach_datastream_drush_help($section) {
   switch ($section) {
     case 'drush:islandora_attach_datastream_to_object':
       return dt('Attaches a datastream via Islandora to a Fedora object.');
